@@ -1,0 +1,85 @@
+Table User {
+  id UUID [pk]
+  name String
+  email String [unique]
+  age Int
+  region Region
+  createdAt DateTime
+}
+
+Table Habit {
+  id UUID [pk]
+  name String
+  category HabitCategory
+  description String
+}
+
+Table UserHabit {
+  id UUID [pk]
+  userId UUID [ref: > User.id]
+  habitId UUID [ref: > Habit.id]
+  status HabitStatus
+  scheduledTime String
+  completedAt DateTime
+}
+
+Table Recommendation {
+  id UUID [pk]
+  userId UUID [ref: > User.id]
+  message String
+  createdAt DateTime
+  shownTime String
+}
+
+Table Interaction {
+  id UUID [pk]
+  userId UUID [ref: > User.id]
+  type InteractionType
+  target String
+  timestamp DateTime
+}
+
+Table Profile {
+  id UUID [pk]
+  userId UUID [ref: > User.id]
+  profileType ProfileType
+  assignedAt DateTime
+}
+
+Enum Region {
+  NORTE
+  CENTRO
+  SUR
+  OCCIDENTE
+  SURESTE
+  CDMX
+  INTERNACIONAL
+}
+
+Enum HabitCategory {
+  ENERGIA
+  AGUA
+  RESIDUOS
+  MOVILIDAD
+  CONSUMO
+}
+
+Enum HabitStatus {
+  ACTIVO
+  PAUSADO
+  COMPLETADO
+  CANCELADO
+}
+
+Enum InteractionType {
+  CLICK
+  IGNORE
+  COMPLETE
+  SKIP
+}
+
+Enum ProfileType {
+  ECO_PRINCIPIANTE
+  ECO_AVANZADO
+  ECO_EXPERTO
+}

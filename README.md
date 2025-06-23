@@ -91,3 +91,5 @@ Para mantener un flujo de trabajo organizado, el nombre de las ramas debe ser **
 
 3. Cuando la funcionalidad esté lista, haz un pull request para integrar la rama al proyecto principal.
 # backend-app
+
+![Diagrama de la base de datos](docs/output.svg)
