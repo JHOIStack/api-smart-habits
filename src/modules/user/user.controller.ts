@@ -23,4 +23,29 @@ export const userController = {
     const user = await userService.createUser(req.body);
     res.status(201).json(user);
   },
+
+  update: async (req: Request, res: Response): Promise<void> => {
+    const id = req.params.id;
+    const userData = req.body;
+    const updatedUser = await userService.updateUser(id, userData);
+
+    if (!updatedUser) {
+      res.status(404).json({ message: 'Usuario no encontrado' });
+      return;
+    }
+
+    res.status(200).json(updatedUser);
+  },
+
+  delete: async (req: Request, res: Response): Promise<void> => {
+    const id = req.params.id;
+    const deletedUser = await userService.deleteUser(id);
+
+    if (!deletedUser) {
+      res.status(404).json({ message: 'Usuario no encontrado' });
+      return;
+    }
+
+    res.status(204).send();
+  },
 };
