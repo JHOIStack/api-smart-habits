@@ -13,11 +13,16 @@
   "description": "",
   "dependencies": {
     "@prisma/client": "^6.9.0",
-    "express": "^5.1.0"
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "morgan": "^1.10.0",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
     "@softwaretechnik/dbml-renderer": "^1.0.30",
-    "@types/express": "^5.0.2",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/morgan": "^1.9.10",
     "@types/node": "^22.15.29",
     "prisma": "^6.9.0",
     "ts-node-dev": "^2.0.0",

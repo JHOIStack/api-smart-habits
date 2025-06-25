@@ -4,12 +4,23 @@ import habitRoutes from './modules/habit/habit.routes';
 import userHabitRoutes from './modules/user-habit/user-habit.routes';
 import profileRoutes from './modules/profile/profile.routes';
 import recommendationRoutes from './modules/recommendation/recommendation.routes';
+import interactionRoutes from './modules/interaction/interaction.routes';
+
+import { errorHandler } from './middlewares/error.middleware';
+
+import cors from 'cors';
+import morgan from "morgan"
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Middlewares globales
+app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(morgan('dev'));
 
+// Rutas
 app.get('/', (_req, res) => {
   res.send('Hello, Smart Habits!');
 });
@@ -19,6 +30,14 @@ app.use('/api/habits', habitRoutes);
 app.use('/api/user-habits', userHabitRoutes);
 app.use('/api/profiles', profileRoutes);
 app.use('/api/recommendations', recommendationRoutes);
+app.use('/api/interactions', interactionRoutes);
+
+app.use((_req, res) => {
+  res.status(404).json({ message: 'Ruta no encontrada' });
+});
+
+app.use(errorHandler);
+
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
