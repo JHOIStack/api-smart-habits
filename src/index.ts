@@ -11,6 +11,10 @@ import { errorHandler } from './middlewares/error.middleware';
 import cors from 'cors';
 import morgan from "morgan"
 
+import swaggerUi from 'swagger-ui-express';
+import { swaggerSpec } from './config/swagger';
+
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -24,6 +28,8 @@ app.use(morgan('dev'));
 app.get('/', (_req, res) => {
   res.send('Hello, Smart Habits!');
 });
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use('/api/users', userRoutes);
 app.use('/api/habits', habitRoutes);
