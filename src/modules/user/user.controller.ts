@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { userService } from './user.service';
-import { PassThrough } from 'stream';
 
 export const userController = {
   getAll: async (req: Request, res: Response) => {
