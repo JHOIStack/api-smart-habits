@@ -5,6 +5,7 @@ import userHabitRoutes from './modules/user-habit/user-habit.routes';
 import profileRoutes from './modules/profile/profile.routes';
 import recommendationRoutes from './modules/recommendation/recommendation.routes';
 import interactionRoutes from './modules/interaction/interaction.routes';
+import statsRoutes from './modules/stats/stats.routes';
 
 import { errorHandler } from './middlewares/error.middleware';
 
@@ -37,6 +38,7 @@ app.use('/api/user-habits', userHabitRoutes);
 app.use('/api/profiles', profileRoutes);
 app.use('/api/recommendations', recommendationRoutes);
 app.use('/api/interactions', interactionRoutes);
+app.use('/api/stats', statsRoutes);
 
 app.use((_req, res) => {
   res.status(404).json({ message: 'Ruta no encontrada' });
@@ -46,5 +48,5 @@ app.use(errorHandler);
 
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`\nServer running on http://localhost:${PORT}\nSwagger docs available at http://localhost:${PORT}/docs`);
 });

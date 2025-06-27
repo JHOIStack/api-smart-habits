@@ -1,5 +1,7 @@
 import prisma from '../../lib/prisma';
 
 export const userHabitService = {
-  getAll: () => prisma.userHabit.findMany(),
+  getAll: (limit? : number) => prisma.userHabit.findMany({
+    ...(limit ? { take: limit } : {}),
+  }),
 };

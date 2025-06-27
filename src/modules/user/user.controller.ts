@@ -1,9 +1,11 @@
 import { Request, Response } from 'express';
 import { userService } from './user.service';
+import { PassThrough } from 'stream';
 
 export const userController = {
-  getAll: async (_req: Request, res: Response) => {
-    const users = await userService.getAll();
+  getAll: async (req: Request, res: Response) => {
+    const limit = req.query.limit ? parseInt(req.query.limit as string, 10) : undefined;
+    const users = await userService.getAll(limit);
     res.status(200).json(users);
   },
 

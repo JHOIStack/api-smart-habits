@@ -11,6 +11,13 @@
  *   get:
  *     summary: Obtener todos los usuarios
  *     tags: [Users]
+ *     parameters:
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           minimum: 1
+ *         description: Límite de usuarios a retornar
  *     responses:
  *       200:
  *         description: Lista de usuarios
@@ -79,7 +86,24 @@
  *         description: Datos inválidos
  *       404:
  *         description: Usuario no encontrado
+ *   delete:
+ *     summary: Eliminar un usuario
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *           format: uuid
+ *         required: true
+ *         description: ID del usuario
+ *     responses:
+ *       204:
+ *         description: Usuario eliminado
+ *       404:
+ *         description: Usuario no encontrado
  */
+
 
 
 
@@ -96,11 +120,11 @@
  *           example: "123e4567-e89b-12d3-a456-426614174000"
  *         name:
  *           type: string
- *           example: "Juan Pérez"
+ *           example: "Jose Briones"
  *         email:
  *           type: string
  *           format: email
- *           example: "juan@example.com"
+ *           example: "briones@gmail.com"
  *         age:
  *           type: integer
  *           example: 25
@@ -116,31 +140,31 @@
  *       properties:
  *         name:
  *           type: string
- *           example: "Ana Gómez"
+ *           example: "Jose Briones"
  *         email:
  *           type: string
  *           format: email
- *           example: "ana@example.com"
+ *           example: "briones@gmail.com"
  *         age:
  *           type: integer
  *           example: 30
  *         region:
  *           type: string
- *           example: "Jalisco"
+ *           example: "CENTRO"
  *     UserUpdate:
  *       type: object
  *       properties:
  *         name:
  *           type: string
- *           example: "Juan Actualizado"
+ *           example: "Jafa Actualizado"
  *         email:
  *           type: string
  *           format: email
- *           example: "nuevo@email.com"
+ *           example: "briones@email.com"
  *         age:
  *           type: integer
- *           example: 28
+ *           example: 27
  *         region:
  *           type: string
- *           example: "Jalisco"
+ *           example: "CENTRO"
  */

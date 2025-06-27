@@ -2,7 +2,10 @@ import prisma from '../../lib/prisma';
 import { CreateUserDto } from './user.schema';
 
 export const userService = {
-  getAll: () => prisma.user.findMany(),
+  getAll: (limit?: number) =>
+    prisma.user.findMany({
+      ...(limit ? { take: limit } : {}),
+    }),
 
   getById: (id: string) => prisma.user.findUnique({ where: { id } }),
 

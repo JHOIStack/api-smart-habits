@@ -1,5 +1,7 @@
 import prisma from '../../lib/prisma';
 
 export const recommendationService = {
-  getAll: () => prisma.recommendation.findMany(),
+  getAll: (limit?: number) => prisma.recommendation.findMany({
+    ...(limit ? { take: limit } : {}),
+  }),
 };

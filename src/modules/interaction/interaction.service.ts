@@ -1,6 +1,8 @@
 import prisma from '../../lib/prisma';
 
 export const interactionService = {
-  getAll: () => prisma.interaction.findMany(),
-  
+  getAll: (limit? :number) => prisma.interaction.findMany({
+    ...(limit ? { take: limit } : {}),
+  }),
+
 };
