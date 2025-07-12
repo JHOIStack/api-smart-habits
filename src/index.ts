@@ -41,7 +41,7 @@ app.use('/api/interactions', interactionRoutes);
 app.use('/api/stats', statsRoutes);
 
 app.use((_req, res) => {
-  res.status(404).json({ message: 'Ruta no encontrada' });
+  res.status(404).json({ message: 'Not found' });
 });
 
 app.use(errorHandler);
