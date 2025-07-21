@@ -12,6 +12,9 @@ const options = {
       {
         url: 'http://localhost:3000',
       },
+      {
+        url: 'https://faint-veriee-jafas2025-0eb62b72.koyeb.app/',
+      },
     ],
   },
 
