@@ -6,7 +6,7 @@ import profileRoutes from './modules/profile/profile.routes';
 import recommendationRoutes from './modules/recommendation/recommendation.routes';
 import interactionRoutes from './modules/interaction/interaction.routes';
 import statsRoutes from './modules/stats/stats.routes';
-
+import authRouter from './modules/auth/auth.routes';
 import { errorHandler } from './middlewares/error.middleware';
 
 import cors from 'cors';
@@ -39,6 +39,7 @@ app.use('/api/profiles', profileRoutes);
 app.use('/api/recommendations', recommendationRoutes);
 app.use('/api/interactions', interactionRoutes);
 app.use('/api/stats', statsRoutes);
+app.use('/api/auth', authRouter);
 
 app.use((_req, res) => {
   res.status(404).json({ message: 'Not found' });
