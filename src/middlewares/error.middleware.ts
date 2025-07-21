@@ -7,7 +7,7 @@ export const errorHandler = (
   res: Response,
   _next: NextFunction
 ): void => {
-  console.error('Error capturado ==> ', err);
+  console.error('Error this ==> ', err);
 
   if (err instanceof ZodError) {
     const formatted = err.format();
