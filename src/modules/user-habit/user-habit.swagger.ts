@@ -45,6 +45,32 @@
 
 /**
  * @swagger
+ * /api/user-habits/user/{userId}:
+ *   get:
+ *     summary: Obtener todos los hábitos de un usuario específico
+ *     tags: [UserHabits]
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID del usuario
+ *     responses:
+ *       200:
+ *         description: Lista de hábitos del usuario
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/UserHabit'
+ *       404:
+ *         description: Usuario no encontrado o sin hábitos
+ */
+
+/**
+ * @swagger
  * /api/user-habits/{id}:
  *   get:
  *     summary: Obtener hábito de usuario por ID

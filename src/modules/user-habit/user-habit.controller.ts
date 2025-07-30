@@ -20,6 +20,13 @@ export const userHabitController = {
     res.status(200).json(userHabit)
   },
 
+  getByUserId: async (req: Request, res: Response) => {
+    const userId = req.params.userId
+    const userHabits = await userHabitService.getByUserId(userId)
+    
+    res.status(200).json(userHabits)
+  },
+
   create: async (req: Request, res: Response) => {
     const userHabit = await userHabitService.create(req.body)
     res.status(201).json(userHabit)

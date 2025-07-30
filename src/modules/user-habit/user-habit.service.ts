@@ -1,5 +1,5 @@
-import prisma from '../../lib/prisma'
-import { CreateUserHabitDto, UpdateUserHabitDto } from './user-habit.schema'
+import prisma from "../../lib/prisma";
+import { CreateUserHabitDto, UpdateUserHabitDto } from "./user-habit.schema";
 
 export const userHabitService = {
   getAll: (limit?: number) =>
@@ -20,6 +20,15 @@ export const userHabitService = {
       },
     }),
 
+  getByUserId: (userId: string) =>
+    prisma.userHabit.findMany({
+      where: { userId },
+      include: {
+        // user: true,
+        habit: true,
+      },
+    }),
+
   create: (data: CreateUserHabitDto) =>
     prisma.userHabit.create({
       data,
@@ -35,4 +44,4 @@ export const userHabitService = {
     prisma.userHabit.delete({
       where: { id },
     }),
-}
+};
