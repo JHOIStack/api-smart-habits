@@ -7,6 +7,7 @@ import recommendationRoutes from './modules/recommendation/recommendation.routes
 import interactionRoutes from './modules/interaction/interaction.routes';
 import statsRoutes from './modules/stats/stats.routes';
 import authRouter from './modules/auth/auth.routes';
+import mlRoutes from './modules/ml/ml.routes';
 import { errorHandler } from './middlewares/error.middleware';
 
 import cors from 'cors';
@@ -32,6 +33,7 @@ app.get('/', (_req, res) => {
 
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
+app.use('/api/ml', mlRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/habits', habitRoutes);
 app.use('/api/user-habits', userHabitRoutes);
