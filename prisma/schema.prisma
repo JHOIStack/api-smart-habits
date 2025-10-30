@@ -21,7 +21,7 @@ model User {
   age       Int
   region    Region?
   createdAt DateTime @default(now())
-  role     UserRole @default(COMMON)
+  role      UserRole @default(COMMON)
 
   habits          UserHabit[]
   recommendations Recommendation[]
