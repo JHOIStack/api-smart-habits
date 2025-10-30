@@ -28,6 +28,8 @@ jobs:
 
       - name: Generate Prisma Client
         run: npx prisma generate
+        env:
+          DATABASE_URL: postgresql://user:password@localhost:5432/test_db?schema=public
 
       - name: Type Check
         run: npx tsc --noEmit
@@ -54,6 +56,8 @@ jobs:
 
       - name: Generate Prisma Client
         run: npx prisma generate
+        env:
+          DATABASE_URL: postgresql://user:password@localhost:5432/test_db?schema=public
 
       - name: Check for TypeScript errors
         run: npx tsc --noEmit
@@ -77,6 +81,8 @@ jobs:
 
       - name: Validate Prisma Schema
         run: npx prisma validate
+        env:
+          DATABASE_URL: postgresql://user:password@localhost:5432/test_db?schema=public
 
       - name: Check Prisma Format
         run: npx prisma format --check

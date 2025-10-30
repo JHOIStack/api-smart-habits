@@ -127,6 +127,7 @@ El proyecto tiene configurados 2 workflows que se ejecutan automáticamente en c
 
 - 📖 [Guía de Testing](TESTING.md) - Cómo escribir y ejecutar tests
 - 📖 [GitHub Actions](GITHUB_ACTIONS.md) - Información sobre CI/CD
+- 🔧 [Troubleshooting CI/CD](TROUBLESHOOTING_CI.md) - Solución de problemas comunes
 
 ---
 

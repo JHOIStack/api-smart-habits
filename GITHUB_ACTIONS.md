@@ -55,6 +55,7 @@ Los workflows están configurados para:
 - Usar `npm ci` en lugar de `npm install` (más rápido y determinístico)
 - Ejecutar con `--maxWorkers=2` para optimizar recursos
 - Generar reportes de cobertura automáticamente
+- Usar variables de entorno de prueba (`DATABASE_URL` y `JWT_SECRET`) para tests sin BD real
 
 ## Artifacts Generados
 
@@ -63,6 +64,23 @@ Los siguientes artifacts se generan y almacenan por 7 días:
 - **coverage-report**: Reporte completo de cobertura de tests
   - Formato HTML navegable
   - Archivos LCOV
+
+## Variables de Entorno en CI
+
+Los workflows usan variables de entorno de prueba para evitar dependencias de bases de datos reales:
+
+```yaml
+DATABASE_URL: postgresql://user:password@localhost:5432/test_db?schema=public
+JWT_SECRET: test-jwt-secret-key-for-ci
+```
+
+**Nota:** Estas son variables de prueba y no se conectan a bases de datos reales. Los tests están diseñados para funcionar sin BD real usando estas variables mock.
+
+Si necesitas configurar variables de entorno personalizadas para tu CI:
+
+1. Ve a Settings → Secrets and variables → Actions en tu repositorio
+2. Agrega nuevos secrets según necesites
+3. Actualiza los workflows para usar `${{ secrets.TU_SECRET }}`
 
 ## Codecov (Opcional)
 

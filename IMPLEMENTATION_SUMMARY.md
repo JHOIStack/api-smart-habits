@@ -24,6 +24,10 @@
 
 **Se ejecuta en:** PRs a todas las ramas + push a main
 
+**Variables de entorno configuradas:**
+- `DATABASE_URL` - URL de base de datos de prueba (mock)
+- `JWT_SECRET` - Secret de prueba para JWT
+
 ---
 
 ## 🧪 Jest Testing Configurado
