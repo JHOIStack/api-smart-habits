@@ -16,8 +16,8 @@ import morgan from "morgan"
 import swaggerUi from 'swagger-ui-express';
 import { swaggerSpec } from './config/swagger';
 
-
-const app = express();
+// Crear la aplicación Express
+export const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middlewares globales
@@ -49,7 +49,9 @@ app.use((_req, res) => {
 
 app.use(errorHandler);
 
-
-app.listen(PORT, () => {
-  console.log(`\nServer running on http://localhost:${PORT}\nSwagger docs available at http://localhost:${PORT}/docs`);
-});
+// Solo iniciar el servidor si este archivo es ejecutado directamente
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`\nServer running on http://localhost:${PORT}\nSwagger docs available at http://localhost:${PORT}/docs`);
+  });
+}
