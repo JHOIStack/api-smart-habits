@@ -90,6 +90,47 @@ Para mantener un flujo de trabajo organizado, el nombre de las ramas debe ser **
 ```
 
 3. Cuando la funcionalidad esté lista, haz un pull request para integrar la rama al proyecto principal.
+
+---
+
+## Testing y CI/CD
+
+Este proyecto incluye:
+
+- ✅ **Tests automatizados** con Jest y Supertest
+- ✅ **GitHub Actions** para validación continua
+- ✅ **Cobertura de código** automática
+
+### Ejecutar Tests
+
+```bash
+# Ejecutar todos los tests
+npm test
+
+# Tests con cobertura
+npm run test:coverage
+
+# Tests en modo watch
+npm run test:watch
+```
+
+### GitHub Actions Workflows
+
+El proyecto tiene configurados 2 workflows que se ejecutan automáticamente en cada PR:
+
+1. **CI - Build and Validate**: Valida build, type checking y schema de Prisma
+2. **Test Suite**: Ejecuta todos los tests y genera reportes de cobertura
+
+**Todos los workflows deben pasar** ✅ antes de mergear un PR.
+
+### Documentación Adicional
+
+- 📖 [Guía de Testing](TESTING.md) - Cómo escribir y ejecutar tests
+- 📖 [GitHub Actions](GITHUB_ACTIONS.md) - Información sobre CI/CD
+- 🔧 [Troubleshooting CI/CD](TROUBLESHOOTING_CI.md) - Solución de problemas comunes
+
+---
+
 # backend-app
 
 ![Diagrama de la base de datos](assets/output.svg)

@@ -7,3 +7,10 @@ node_modules
 dist/
 tsconfig.tsbuildinfo
 .DS_Store
+
+# Test coverage
+coverage/
+*.lcov
+
+# Jest
+.jest-cache/
